@@ -1,0 +1,21 @@
+@import "@bootstrap/functions";
+@import "@bootstrap/variables";
+
+
+
+$use-borders: false;
+$border-style: if($use-borders, solid, none);
+.border {
+  border: 1px $border-style $border-color;
+}
+
+
+
+// . Import Bootstrap's SCSS
+@import "@bootstrap/bootstrap";
+$bootstrap-icons-font-dir: "@bootstrap-icons/fonts";
+@import "@bootstrap-icons/bootstrap-icons.scss";
+
+
+
+// . Write custom styles
