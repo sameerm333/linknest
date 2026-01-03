@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar.jsx";
 import DateDisplay from "../components/DateDisplay.jsx";
 import LiveClock from "../components/LiveClock.jsx";
 import LocationTracker from "../components/LocationTracker.jsx";
+import Calendar from "../components/Calendar.jsx";
 
 function HomePage() {
   return (
@@ -9,10 +10,23 @@ function HomePage() {
       <Navbar />
 
       <div className="container border  mt-2">
-        <div className="row row-cols-1 row-cols-sm-2 row-cols-md-4 border  mt-2">
-          <DateDisplay />
-          <LiveClock />
-          <LocationTracker />
+        <div className="row  border  mt-2">
+          <div className="col-12 col-md-4 border shadow">
+            <div class="list-group list-group-flush">
+              <div class="list-group-item">
+                <LiveClock />
+              </div>
+              <div class="list-group-item  ">
+                <DateDisplay />
+              </div>
+              <div class="list-group-item ">
+                <LocationTracker />
+              </div>
+            </div>
+          </div>
+          <div className="col-12 col-md-8 border">
+            <Calendar />
+          </div>
         </div>
       </div>
     </>

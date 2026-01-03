@@ -13,21 +13,11 @@ function LiveClock() {
 
   return (
     <>
-      <div className="col mb-4 border ">
-        <div className="card h-100 text-center shadow">
-          <div className="card-body">
-            <h5 className="card-title">
-              <i className="bi bi-clock me-1"></i>
-              <span>Live</span>
-            </h5>
-            <span className="card-text fs-2 text">
-              <p className="card-text display-9">
-                {hours}:{minutes}:{seconds}
-              </p>
-            </span>
-          </div>
-        </div>
-      </div>
+      <i className="bi bi-clock me-1"></i>
+      <span>Live</span>
+      <p className="fs-2 ">
+        {hours}:{minutes}:{seconds}
+      </p>
     </>
   );
 }

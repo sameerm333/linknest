@@ -15,17 +15,9 @@ function DateDisplay() {
   // console.log("Formatted Date:", formattedDate);
   return (
     <>
-      <div className="col mb-4 border ">
-        <div className="card h-100 text-center shadow">
-          <div className="card-body">
-            <h5 className="card-title">
-              <i className="bi bi-calendar4 me-1"></i>
-              <span>Date</span>
-            </h5>
-            <p className="card-text fs-4 text">{formattedDate}</p>
-          </div>
-        </div>
-      </div>
+      <i className="bi bi-calendar4 me-1"></i>
+      <span>Date</span>
+      <p className="fs-4">{formattedDate}</p>
     </>
   );
 }
