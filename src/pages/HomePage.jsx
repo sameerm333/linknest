@@ -11,15 +11,15 @@ function HomePage() {
 
       <div className="container border  mt-2">
         <div className="row  border  mt-2">
-          <div className="col-12 col-md-4 border shadow">
-            <div class="list-group list-group-flush">
-              <div class="list-group-item">
+          <div className="col-12 col-md-4 border ">
+            <div className="list-group list-group-flush">
+              <div className="list-group-item">
                 <LiveClock />
               </div>
-              <div class="list-group-item  ">
+              <div className="list-group-item  ">
                 <DateDisplay />
               </div>
-              <div class="list-group-item ">
+              <div className="list-group-item ">
                 <LocationTracker />
               </div>
             </div>
