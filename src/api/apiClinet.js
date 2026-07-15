@@ -3,16 +3,12 @@ function buildUrl(params = {}) {
   return `${BASE_URL}?${new URLSearchParams(params).toString()}`;
 }
 
-export async function fetchAvailableLinks() {
-    const params = {
-        type: "weblinks",
-        action: "view"
-    };
-
-    let url = buildUrl(params);
+export async function fetchAvailableLinks(displayConfig) {
+    let url = buildUrl( { ...displayConfig } );
     // console.log(url)
     const response = await fetch(url);
     const resData = await response.json();
+    // console.log(resData)
     if (!response.ok) {
         throw new Error("failed to fetch");
     }

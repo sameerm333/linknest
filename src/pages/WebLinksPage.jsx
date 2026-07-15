@@ -1,12 +1,16 @@
 import Navbar from "../components/Navbar.jsx";
 import ScrollToTopButton from "../components/ScrollToTopButton.jsx";
-import WebLinksDisplay from "../components/WebLinksDisplay.jsx";
+import LinksDisplay from "../components/LinksDisplay.jsx";
 
 function WebLinksPage() {
+  const WEBLINKS_CONFIG = {
+    type: "weblinks",
+    action: "view",
+  };
   return (
     <>
       <Navbar />
-      <WebLinksDisplay />
+      <LinksDisplay displayConfig={WEBLINKS_CONFIG} />
       <ScrollToTopButton />
     </>
   );

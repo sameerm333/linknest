@@ -55,6 +55,17 @@ const Navbar = () => {
                   Trending
                 </NavLink>
               </li> */}
+              <li className="nav-item border">
+                <NavLink
+                  to="/techlinks"
+                  className={({ isActive }) =>
+                    isActive ? "nav-link active " : "nav-link "
+                  }
+                >
+                  <i className="bi bi-link-45deg me-1"></i>
+                  <span>Technical Links</span>
+                </NavLink>
+              </li>
             </ul>
           </div>
         </div>
