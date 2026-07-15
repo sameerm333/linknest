@@ -1,5 +1,5 @@
 import { useState } from "react";
-const WebLinksCategory = ({ categoryList }) => {
+const LinksCategory = ({ categoryList }) => {
   const [activeLink, setActiveLink] = useState("");
   const handleLinkClick = (section) => {
     setActiveLink(section);
@@ -25,4 +25,4 @@ const WebLinksCategory = ({ categoryList }) => {
     </>
   );
 };
-export default WebLinksCategory;
+export default LinksCategory;

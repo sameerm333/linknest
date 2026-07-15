@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 
-import WebLinksCategory from "./WebLinksCategory.jsx";
-import WebLinksContent from "./WebLinksContent.jsx";
+import LinksCategory from "./LinksCategory.jsx";
+import LinksContent from "./LinksContent.jsx";
 import { fetchAvailableLinks } from "../api/apiClinet.js";
 
-const CACHE_KEY = "web_links_cache";
+const CACHE_KEY = "_cache";
 const CACHE_KEY_DURATION = 60 * 60 * 1000;
 
 const extractCategories = (links) => {
   return [...new Set(links.map((item) => item.category))].sort();
 };
-const getCachedLinks = () => {
-  const cachedData = localStorage.getItem(CACHE_KEY);
+const getCachedLinks = (type) => {
+  const key = `${type}${CACHE_KEY}`;
+  const cachedData = localStorage.getItem(key);
   if (!cachedData) return null;
   try {
     const parsed = JSON.parse(cachedData);
@@ -21,9 +22,9 @@ const getCachedLinks = () => {
     return null;
   }
 };
-const setCachedLinks = (data) => {
+const setCachedLinks = (data, type) => {
   localStorage.setItem(
-    CACHE_KEY,
+    `${type}${CACHE_KEY}`,
     JSON.stringify({
       data: data,
       timestamp: Date.now(),
@@ -31,7 +32,7 @@ const setCachedLinks = (data) => {
   );
 };
 
-const WebLinksDisplay = () => {
+const LinksDisplay = ({ displayConfig }) => {
   const [isFetching, setFetching] = useState(false);
   const [links, setLinks] = useState([]);
   const [category, setCategory] = useState([]);
@@ -39,19 +40,19 @@ const WebLinksDisplay = () => {
     setFetching(true);
     async function fetchLinks() {
       try {
-        const cachedLinks = getCachedLinks();
+        const cachedLinks = getCachedLinks(displayConfig.type);
         if (cachedLinks) {
-          console.log("data is already cached");
+          console.log(`Data for ${displayConfig.type} is already cached`);
           setLinks(cachedLinks);
           setCategory(extractCategories(cachedLinks));
           return;
         }
 
-        const fetchedLinks = await fetchAvailableLinks();
-        // console.log(fetchedLinks);
+        const fetchedLinks = await fetchAvailableLinks(displayConfig);
+        console.log(fetchedLinks);
         setLinks(fetchedLinks);
         setCategory(extractCategories(fetchedLinks));
-        setCachedLinks(fetchedLinks);
+        setCachedLinks(fetchedLinks, displayConfig.type);
       } catch (error) {
         console.error("Error fetching links:", error);
       } finally {
@@ -60,7 +61,7 @@ const WebLinksDisplay = () => {
     }
 
     fetchLinks();
-  }, []);
+  }, [displayConfig.type, displayConfig.action]);
 
   return (
     <>
@@ -69,10 +70,10 @@ const WebLinksDisplay = () => {
       ) : (
         <div className="container mt-2 border ">
           <div className="row mt-2 card shadow ">
-            <WebLinksCategory categoryList={category} />
+            <LinksCategory categoryList={category} />
           </div>
           <div className="row border mt-2">
-            <WebLinksContent links={links} />
+            <LinksContent links={links} />
           </div>
         </div>
       )}
@@ -80,4 +81,4 @@ const WebLinksDisplay = () => {
   );
 };
 
-export default WebLinksDisplay;
+export default LinksDisplay;

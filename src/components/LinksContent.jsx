@@ -1,4 +1,4 @@
-const WebLinksContent = ({ links }) => {
+const LinksContent = ({ links }) => {
   // Group by category
   const groupedData = links.reduce((acc, item) => {
     const { category } = item;
@@ -43,4 +43,4 @@ const WebLinksContent = ({ links }) => {
     </>
   );
 };
-export default WebLinksContent;
+export default LinksContent;
