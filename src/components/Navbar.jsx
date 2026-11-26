@@ -1,4 +1,5 @@
 import { NavLink } from "react-router";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Navbar = () => {
   return (
@@ -67,6 +68,7 @@ const Navbar = () => {
                 </NavLink>
               </li>
             </ul>
+            <ThemeSwitcher/>
           </div>
         </div>
       </nav>

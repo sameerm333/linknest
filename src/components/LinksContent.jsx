@@ -22,7 +22,7 @@ const LinksContent = ({ links }) => {
     <>
       <section className=" border mt-2 ">
         {Object.entries(sortedGroupedData).map(([category, items]) => (
-          <div key={category} id={category} className="card border-dark">
+          <div key={category} id={category} className="card border mb-2">
             <div className="card-header">{category}</div>
             <div className="card-body">
               {items.map((item) => (

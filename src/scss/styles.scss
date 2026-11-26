@@ -1,0 +1,51 @@
+
+//  Bootstrap functions
+@import "bootstrap/scss/functions";
+
+//  custom variable overrides
+@import "./abstracts/variables";
+
+//  Bootstrap variables and styles
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/variables-dark";
+@import "bootstrap/scss/maps";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/root";
+
+//  Bootstrap components
+@import "bootstrap/scss/bootstrap";
+
+
+@import "@bootstrap-icons/bootstrap-icons.css";
+
+
+
+// Global CSS variables
+:root {
+  --month-color: var(--bs-primary);
+}
+
+//  Custom themes
+@import "./themes/light";
+@import "./themes/dark";
+
+//  Custom Utilities
+@import "./utilities/utilities";
+
+//  Custom components
+
+
+
+// global styles
+.theme-pill-switch {
+  width: 2.75rem;
+  height: 1.4rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    background-position 0.2s ease;
+
+  &:checked {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+  }
+}
