@@ -12,7 +12,7 @@ const LinksCategory = ({ categoryList }) => {
           <a
             key={index}
             type="button"
-            className={` btn  btn-dark border mt-2 mb-2 ms-2 me-2  ${
+            className={` btn   border mt-2 mb-2 ms-2 me-2  ${
               activeLink === category ? "active" : ""
             }`}
             href={`#${category}`}
